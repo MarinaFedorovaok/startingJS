@@ -1,0 +1,14 @@
+<meta charset = "utf-8">
+<script type="text/javascript">
+var summ = +prompt("Enter the deposit amount")
+var percent = +prompt("Enter the percent")
+var years = +prompt("Enter the number of years")
+var amount = [];
+console.log(years);
+for (var i = 1; i <= years; i++){
+    summ = summ*(percent+100)/100;
+    amount[i-1] = summ;
+   console.log(amount[i-1]);
+}
+</script>
+
