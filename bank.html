@@ -52,8 +52,7 @@
             for (var j = 0; j<= years; j++){
                 chartTable.push ([time[j], amount[j]]);
             }
-        
-        var data = google.visualization.arrayToDataTable(chartTable);
+       var data = google.visualization.arrayToDataTable(chartTable);
 
         var options = {
           /*title: 'The decline of \'The 39 Steps\'',
@@ -64,11 +63,12 @@
         var chart = new google.visualization.SteppedAreaChart(document.getElementById('chart_div'));
 
         chart.draw(data, options);
+        //document.write (amount);
       }
     </script>
   </head>
   <body>
-    <h3>Прогноз объема инвестиций</h3>
+    <h3>Прогноз суммы накоплений</h3>
     <input  id= "startDepositInput" type="number">
     <button id="startDepositButton" onclick="edit_my_div()" disabled>Ввести суммy инвестиций</button>
     <p>
@@ -84,5 +84,5 @@
     <button id="start" onclick="startButtom()">Построить график накоплений</button>
     <p>
     <div id="chart_div" style="width: 900px; height: 500px;"></div>
-  </body>
+
 </html>
