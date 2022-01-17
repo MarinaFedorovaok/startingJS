@@ -53,17 +53,20 @@
         var chart = new google.visualization.SteppedAreaChart(document.getElementById('chart_div'));
 
         chart.draw(data, options);
-        document.getElementById("text").textContent = "Общая сумма накоплений за "+ years+ " лет составит: " + summ;
-      }
+        document.getElementById("text").textContent = "Общая сумма накоплений за "+ years+ " лет составит: " + summ.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1 ").replace('.', ',') + " рублей";
+     }
     </script>
   </head>
   <body>
-   <div> <h3>Прогноз суммы накоплений</h3></div>
+   <h3><div id = "header">Расчет суммы накоплений</div></h3>
+   <span id="deposit_Description">Введите сумму инвестиций в рублях:</span>
     <input  id= "startDepositInput" type="number">
        <p>
+        <span id="percent_Description">Введите годовую ставку процентов:</span>
         <input  id= "percentInput" type="number">
       </p>
     <p>
+        <span id="years_Description">Введите количество лет:</span>
         <input  id= "yearsInput" type="number">
        </p>
     <p>
