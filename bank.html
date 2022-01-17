@@ -10,22 +10,12 @@
         var summ=1;
         var percent = 5;
         var years = 1;
-        function edit_my_div() {
-            summ = +document.getElementById("startDepositInput").value;
-            console.log("edit_my_div: summ = ", summ);
-            //drawChart();
-        }
-        function editPercent() {
-            percent = +document.getElementById("percentInput").value;
-            //drawChart();
-        }
-
-        function editYears() {
-            years = +document.getElementById("yearsInput").value;
-            //drawChart();
-        }
-
+        
         function startButtom() {
+            summ = +document.getElementById("startDepositInput").value;
+            percent = +document.getElementById("percentInput").value;
+            years = +document.getElementById("yearsInput").value;
+            // проверить, что пользователь ввел что-то разумное. 
             drawChart();
         }
         //var summ = +prompt("Enter the start deposit amount")
@@ -63,26 +53,23 @@
         var chart = new google.visualization.SteppedAreaChart(document.getElementById('chart_div'));
 
         chart.draw(data, options);
-        //document.write (amount);
+        document.getElementById("text").textContent = "Общая сумма накоплений за "+ years+ " лет составит: " + summ;
       }
     </script>
   </head>
   <body>
-    <h3>Прогноз суммы накоплений</h3>
+   <div> <h3>Прогноз суммы накоплений</h3></div>
     <input  id= "startDepositInput" type="number">
-    <button id="startDepositButton" onclick="edit_my_div()" disabled>Ввести суммy инвестиций</button>
+       <p>
+        <input  id= "percentInput" type="number">
+      </p>
     <p>
-
-    <input  id= "percentInput" type="number">
-    <button id="percentButton" onclick="editPercent()">Учесть процентную ставку</button>
+        <input  id= "yearsInput" type="number">
+       </p>
     <p>
-
-    <input  id= "yearsInput" type="number">
-    <button id="yearstButton" onclick="editYears()">Учесть количество лет инвестирования</button>
-    <p>
-
-    <button id="start" onclick="startButtom()">Построить график накоплений</button>
-    <p>
-    <div id="chart_div" style="width: 900px; height: 500px;"></div>
-
+        <button id="start" onclick="startButtom()">Построить график накоплений</button>
+    </p>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div> 
+    <span id = "text"></span> 
+    <div id = "result"></div>
 </html>
